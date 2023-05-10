@@ -7,7 +7,7 @@ const App = () => {
 	const [movies, setMovies] = useState([]);
 
 	const getMovieRequest = async() =>{
-		const url = `http://www.omdbapi.com/?i=tt3896198&apikey=73038109`
+		const url = `http://www.omdbapi.com/?s=star wars&apikey=73038109`
 
 		const response = await fetch(url);
 		const responseJson = await response.json();
