@@ -92,12 +92,18 @@ import { Register } from "./components/user/Register";
 
 function App() {
 	const [currentForm, setCurrentForm] = useState('login')
+
+	const toggleForm = (formName) =>{
+		setCurrentForm(formName)
+	}
+
+
 	return(
 		<div>
 			{
 				currentForm === 'login' ?
-				 <Login setCurrentForm={setCurrentForm} /> :
-				 <Register setCurrentForm={setCurrentForm} />	
+				 <Login  onFormSwitch={toggleForm} /> :
+				 <Register  onFormSwitch={toggleForm}/>	
 			}
 		</div>
 	)
