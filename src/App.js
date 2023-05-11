@@ -9,8 +9,8 @@ import RemoveFavourites from './components/RemoveFavourites';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
-	const [searchValue, setSearchValue] = useState('');
 	const [favourites, setFavourites] = useState([]);
+	const [searchValue, setSearchValue] = useState('');
 
 	const getMovieRequest = async (searchValue) => {
 		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=73038109`;
@@ -23,9 +23,28 @@ const App = () => {
 		}
 	};
 
+	useEffect(() => {
+		getMovieRequest(searchValue);
+	}, [searchValue]);
+
+	useEffect(() => {
+		const movieFavourites = JSON.parse(
+			localStorage.getItem('react-movie-app-favourites')
+		);
+
+		if (movieFavourites) {
+			setFavourites(movieFavourites);
+		}
+	}, []);
+
+	const saveToLocalStorage = (items) => {
+		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
+	};
+
 	const addFavouriteMovie = (movie) => {
 		const newFavouriteList = [...favourites, movie];
 		setFavourites(newFavouriteList);
+		saveToLocalStorage(newFavouriteList);
 	};
 
 	const removeFavouriteMovie = (movie) => {
@@ -34,10 +53,8 @@ const App = () => {
 		);
 
 		setFavourites(newFavouriteList);
+		saveToLocalStorage(newFavouriteList);
 	};
-	useEffect(() => {
-		getMovieRequest(searchValue);
-	}, [searchValue]);
 
 	return (
 		<div className='container-fluid movie-app'>
@@ -66,6 +83,4 @@ const App = () => {
 	);
 };
 
-
 export default App;
-
