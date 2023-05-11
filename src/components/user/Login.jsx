@@ -12,9 +12,9 @@ export const Login = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label for ="email">Email</label> 
+        <label htmlFor ="email">Email</label> 
         <input type='email' value={email} placeholder='exampleemail@gmail.com' id="email" name="email"/>
-        <label for ="password">Password</label> 
+        <label htmlFor ="password">Password</label> 
         <input type='password' value={password} placeholder='********' id="password" name="password"/>
         <button type="submit">Log In</button>
       </form>
