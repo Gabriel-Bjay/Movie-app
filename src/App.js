@@ -85,15 +85,20 @@
 
 // export default App;
 
-
+import { useState } from "react";
+import React from "react";
 import { Login } from "./components/user/Login";
-// import { Register } from "./components/user/Register";
+import { Register } from "./components/user/Register";
 
 function App() {
+	const [currentForm, setCurrentForm] = useState('login')
 	return(
 		<div>
-			<Login />
-			{/* <Register /> */}
+			{
+				currentForm === 'login' ?
+				 <Login setCurrentForm={setCurrentForm} /> :
+				 <Register setCurrentForm={setCurrentForm} />	
+			}
 		</div>
 	)
 }
