@@ -20,7 +20,7 @@ export const Register = () => {
         <input type='password' value={password} placeholder='********' id="password" name="password"/>
         <button type="submit">Log In</button>
       </form>
-      <button>Don't have an account?Register Here.</button>
+      <button>Already have an account?Login Here.</button>
     </>
   )
 }
