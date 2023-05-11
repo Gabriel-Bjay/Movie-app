@@ -99,7 +99,7 @@ function App() {
 
 
 	return(
-		<div>
+		<div className="App">
 			{
 				currentForm === 'login' ?
 				 <Login  onFormSwitch={toggleForm} /> :
