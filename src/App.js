@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { Route, Routes } from "react-router-dom";
-import { Login } from "./components/user/Login";
-import { Register } from "./components/user/Register";
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieList from './components/MovieList';
@@ -10,20 +7,13 @@ import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 
-
 const App = () => {
-	const [currentForm, setCurrentForm] = useState('login')
-
-	const toggleForm = (formName) =>{
-		setCurrentForm(formName)
-	}
-
 	const [movies, setMovies] = useState([]);
 	const [favourites, setFavourites] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
 
 	const getMovieRequest = async (searchValue) => {
-		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
+		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=73038109`;
 
 		const response = await fetch(url);
 		const responseJson = await response.json();
@@ -67,14 +57,7 @@ const App = () => {
 	};
 
 	return (
-
-
 		<div className='container-fluid movie-app'>
-			<Routes>
-				<Route path="/" 
-					element={currentForm === 'login' ? <Login onFormSwitch={toggleForm} /> :	
-					<Register onFormSwitch={toggleForm} />} />
-			</Routes>
 			<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Movies' />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
@@ -101,4 +84,3 @@ const App = () => {
 };
 
 export default App;
-
