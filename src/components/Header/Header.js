@@ -1,7 +1,7 @@
 import React from 'react'
 import './Header.css'
 import { useState } from 'react'
-import { FavoriteBorder, LoginOutlined} from '@mui/icons-material'
+import { FavoriteBorder} from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
@@ -29,29 +29,39 @@ const Header = () => {
     <div className='header-container'>
       <div className='header-items'>
         <div className='header-item'>
-              {user ? (
+            <div>
+              <Link to='/'>
+                <div className='avatar'>
+                    <img src='https://cdn-icons-png.flaticon.com/512/16/16363.png' alt='' className='avatar-icon'/>
+                </div>
+              </Link> 
+            </div> 
+
+            <div>
+              <Link to='/favourites'>
+                <div className='header-item'>
+                    <FavoriteBorder/>
+                    <h5>My List</h5>
+                </div>
+              </Link>  
+            </div>
+
+            <div className='login-flex'>
+               {user ? (
                   <>
-                    <LoginIcon onClick={handleLogout}/>
-                    <p>Hello, <br/><em>{user.email}</em></p>
+                    
+                    <p>Hello, {user.email} <LoginIcon onClick={handleLogout} className='icon'/></p>
+                    
                   </>
                 ) : (
                   <Link to='/login'>
                     <LoginIcon/>
                   </Link>
-                )}  
-            <h3>Check Out This Awesome Movie suggestions!</h3>
-            <Link to='/'>
-              <div className='avatar'>
-                  <img src='https://cdn-icons-png.flaticon.com/512/16/16363.png' alt='' className='avatar-icon'/>
-              </div>
-            </Link>  
+                )} 
+            </div>
+
         </div>
-        <Link to='/favourites'>
-          <div className='header-item'>
-              <FavoriteBorder/>
-              <h5>My List</h5>
-          </div>
-        </Link>        
+              
       </div>
     </div>
   )
