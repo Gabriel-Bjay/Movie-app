@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-import { FavoriteBorder, LoginOutlined, Search } from '@mui/icons-material'
+import { FavoriteBorder, LoginOutlined} from '@mui/icons-material'
 
 const Header = () => {
   return (
@@ -18,14 +18,6 @@ const Header = () => {
             <FavoriteBorder/>
             <h5>My List</h5>
         </div>
-
-
-        {/* <div className='header-item'>
-            <div className='header-item-search'>
-                <input type='text' placeholder='Search Movies' />
-                <Search/>
-            </div>
-        </div> */}
         
       </div>
     </div>
