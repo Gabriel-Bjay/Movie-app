@@ -3,8 +3,6 @@ import MovieList from '../Movies/MovieList'
 import MovieListHeading from '../Movies/MovieListHeading';
 import SearchBox from '../SearchBox';
 import AddFavourites from '../Favourites/AddFavourites';
-import RemoveFavourites from '../Favourites/RemoveFavourites';
-// import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Body.css'
 
@@ -49,14 +47,6 @@ const Body = () => {
 		saveToLocalStorage(newFavouriteList);
 	};
 
-	const removeFavouriteMovie = (movie) => {
-		const newFavouriteList = favourites.filter(
-			(favourite) => favourite.imdbID !== movie.imdbID
-		);
-
-		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
-	};
   return (
     <div className='main-body'>
         <div className='header-item'>
@@ -80,24 +70,7 @@ const Body = () => {
                                     />
                             </div> 
                     </div>
-
-                    <div className='row-listing'>
-                        <div className='scroll'>
-                            <MovieListHeading heading='Favourites' />
-                        </div>
-                    </div>
-
-                    <div className='row-lsiting'>
-                        <div className='scroll'>
-
-                            <MovieList
-                                movies={favourites}
-                                handleFavouritesClick={removeFavouriteMovie}
-                                favouriteComponent={RemoveFavourites}
-                            />
-                        </div>
-                    </div>
-            
+           
                 </div>
             </div>
     </div>
