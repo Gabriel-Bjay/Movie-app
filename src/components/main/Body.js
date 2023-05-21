@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import MovieList from '../Movies/MovieList'
-import MovieListHeading from '../Movies/MovieListHeading';
+// import MovieListHeading from '../Movies/MovieListHeading';
 import SearchBox from '../SearchBox';
 import AddFavourites from '../Favourites/AddFavourites';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -58,7 +58,8 @@ const Body = () => {
             <div className='movies'>
                 <div className='movie-app'>
                     <div className='listing'>
-                        <MovieListHeading heading='Movies' />
+						<h2>Movies</h2>
+                        {/* <MovieListHeading  /> */}
                     </div>
 
                     <div className='row-listing'>
