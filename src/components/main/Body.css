@@ -1,11 +1,22 @@
 .row-listing{
-    overflow: auto;
-    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    display: flex;
 }
 
 .scroll{
-    display: inline-block;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
+    min-width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
+}
+
+.favourites-listing{
+
 }

@@ -81,16 +81,21 @@ const Body = () => {
                             </div> 
                     </div>
 
-                    <div className='favourites-listing'>
-                        <MovieListHeading heading='Favourites' />
+                    <div className='row-listing'>
+                        <div className='scroll'>
+                            <MovieListHeading heading='Favourites' />
+                        </div>
                     </div>
 
-                    <div className='favourites-lsiting'>
-                        <MovieList
-                            movies={favourites}
-                            handleFavouritesClick={removeFavouriteMovie}
-                            favouriteComponent={RemoveFavourites}
-                        />
+                    <div className='row-lsiting'>
+                        <div className='scroll'>
+
+                            <MovieList
+                                movies={favourites}
+                                handleFavouritesClick={removeFavouriteMovie}
+                                favouriteComponent={RemoveFavourites}
+                            />
+                        </div>
                     </div>
             
                 </div>
