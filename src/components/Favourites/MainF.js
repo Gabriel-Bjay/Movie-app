@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import MovieList from '../Movies/MovieList'
-import MovieListHeading from '../Movies/MovieListHeading';
 import RemoveFavourites from '../Favourites/RemoveFavourites';
 
 const MainF = () => {
@@ -33,13 +32,10 @@ const MainF = () => {
 	};
 
   return (
-    <div>
-      <div className='row-listing'>
-                        <div className='scroll'>
-                            <MovieListHeading heading='Favourites' />
-                        </div>
-                    </div>
-
+    			<div>
+					<div className='listing'>
+						<h2>Favourites</h2>
+					</div> 
                     <div className='row-listing'>
                         <div className='scroll'>
 
@@ -50,7 +46,7 @@ const MainF = () => {
                             />
                         </div>
                     </div>
-    </div>
+    			</div>
   )
 }
 
